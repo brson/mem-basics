@@ -1,7 +1,1 @@
-* Basic low-level memory functions
-
-- memcpy
-- memmove
-- memcmp
-- memchr
-- memset
+Playing with basic low-level memory functions
