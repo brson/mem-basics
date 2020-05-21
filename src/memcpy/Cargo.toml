@@ -17,6 +17,7 @@ path = "test_memcpy.rs"
 [[bench]]
 name = "bench_memcpy"
 path = "bench_memcpy.rs"
+harness = false
 
 [dependencies]
 cfg-if = "0.1.10"
