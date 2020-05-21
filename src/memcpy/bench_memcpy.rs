@@ -1,10 +1,16 @@
-use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use criterion::criterion_main;
 
-fn bench_memcpy(c: &mut Criterion) {
-    c.bench_function("memcpy", |b| b.iter(|| {
-        black_box(());
-    }));
+mod offset {
+    use memcpy::memcpy_offset::memcpy;
+    include!("bench_memcpy_impl.rs");
 }
 
-criterion_group!(benches, bench_memcpy);
-criterion_main!(benches);
+mod accumulate {
+    use memcpy::memcpy_accumulate::memcpy;
+    include!("bench_memcpy_impl.rs");
+}
+
+criterion_main!(
+    offset::benches,
+    accumulate::benches,
+);
