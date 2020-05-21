@@ -23,6 +23,7 @@ fn memcpy_assert(dst: *mut u8, src: *const u8, bytes: usize) {
 }
 
 pub mod memcpy_offset;
+pub mod memcpy_offset_rev;
 pub mod memcpy_accumulate;
 pub mod memcpy_ptrcopy;
 pub mod memcpy_copyto;
@@ -32,6 +33,8 @@ pub mod memcpy_copyfrom;
 #[allow(unused)]
 static ALL_MEMCPYS: &[Memcpy] = &[
     memcpy_offset::memcpy,
+    memcpy_offset_rev::memcpy,
+    memcpy_offset_rev::memcpy,
     memcpy_accumulate::memcpy,
     memcpy_ptrcopy::memcpy,
     memcpy_copyto::memcpy,

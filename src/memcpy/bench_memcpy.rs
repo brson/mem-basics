@@ -5,6 +5,11 @@ mod offset {
     include!("bench_memcpy_impl.rs");
 }
 
+mod offset_rev {
+    use memcpy::memcpy_offset_rev::memcpy;
+    include!("bench_memcpy_impl.rs");
+}
+
 mod accumulate {
     use memcpy::memcpy_accumulate::memcpy;
     include!("bench_memcpy_impl.rs");
@@ -27,6 +32,7 @@ mod copyfrom {
 
 criterion_main!(
     offset::benches,
+    offset_rev::benches,
     accumulate::benches,
     ptrcopy::benches,
     copyto::benches,

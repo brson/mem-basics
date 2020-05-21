@@ -3,6 +3,11 @@ mod offset {
     include!("test_memcpy_impl.rs");
 }
 
+mod offset_rev {
+    use memcpy::memcpy_offset_rev::memcpy;
+    include!("test_memcpy_impl.rs");
+}
+
 mod accumulate {
     use memcpy::memcpy_accumulate::memcpy;
     include!("test_memcpy_impl.rs");
