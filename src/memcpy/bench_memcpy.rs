@@ -10,7 +10,13 @@ mod accumulate {
     include!("bench_memcpy_impl.rs");
 }
 
+mod ptrcopy {
+    use memcpy::memcpy_ptrcopy::memcpy;
+    include!("bench_memcpy_impl.rs");
+}
+
 criterion_main!(
     offset::benches,
     accumulate::benches,
+    ptrcopy::benches,
 );

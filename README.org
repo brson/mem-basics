@@ -1,1 +1,11 @@
 Playing with basic low-level memory functions
+
+* Links
+** SIMD algorithms
+- http://0x80.pl/articles/simd-strfind.html
+- https://github.com/khegeman/floki
+- http://www.vldb.org/pvldb/vol8/p1274-inoue.pdf
+- https://researcher.watson.ibm.com/researcher/files/jp-INOUEHRS/SIMDSorting_A0.pdf
+- https://www.researchgate.net/publication/221302646_New_Algorithms_for_SIMD_Alignment
+- https://github.com/DragonSpit/HPCsharp
+- https://dl.acm.org/doi/10.14778/1454159.1454171
