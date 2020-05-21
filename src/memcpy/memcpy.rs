@@ -17,10 +17,12 @@ fn memcpy_assert(dst: *mut u8, src: *const u8, bytes: usize) {
     debug_assert!(size_fits_in_signed_offset);
 }
 
-pub mod memcpy_loop_offset;
+pub mod memcpy_offset;
+pub mod memcpy_accumulate;
 
 /// Ensure sure all implementations have the same type
 #[allow(unused)]
 static ALL_MEMCPYS: &[Memcpy] = &[
-    memcpy_loop_offset::memcpy,
+    memcpy_offset::memcpy,
+    memcpy_accumulate::memcpy,
 ];
