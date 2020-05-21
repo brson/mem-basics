@@ -8,6 +8,7 @@ edition = "2018"
 path = "memcpy.rs"
 doctest = false
 test = false
+bench = false
 
 [[test]]
 name = "test_memcpy"
