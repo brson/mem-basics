@@ -1,0 +1,25 @@
+[package]
+name = "memcpy"
+version = "0.1.0"
+authors = ["Brian Anderson <andersrb@gmail.com>"]
+edition = "2018"
+
+[lib]
+path = "memcpy.rs"
+doctest = false
+test = false
+
+[[test]]
+name = "test_memcpy"
+path = "test_memcpy.rs"
+
+[[bench]]
+name = "bench_memcpy"
+path = "bench_memcpy.rs"
+
+[dependencies]
+cfg-if = "0.1.10"
+
+[dev-dependencies]
+proptest = "0.9.6"
+criterion = "0.3.2"
