@@ -15,8 +15,20 @@ mod ptrcopy {
     include!("bench_memcpy_impl.rs");
 }
 
+mod copyto {
+    use memcpy::memcpy_copyto::memcpy;
+    include!("bench_memcpy_impl.rs");
+}
+
+mod copyfrom {
+    use memcpy::memcpy_copyfrom::memcpy;
+    include!("bench_memcpy_impl.rs");
+}
+
 criterion_main!(
     offset::benches,
     accumulate::benches,
     ptrcopy::benches,
+    copyto::benches,
+    copyfrom::benches,
 );
