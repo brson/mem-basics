@@ -15,6 +15,11 @@ fn memcpy_assert(dst: *mut u8, src: *const u8, bytes: usize) {
 
     let size_fits_in_signed_offset = bytes <= isize::max_value() as usize;
     debug_assert!(size_fits_in_signed_offset);
+
+    let dst_does_not_overflow = (dst as usize).checked_add(bytes).is_some();
+    let src_does_not_overflow = (src as usize).checked_add(bytes).is_some();
+    assert!(dst_does_not_overflow);
+    assert!(src_does_not_overflow);
 }
 
 pub mod memcpy_offset;
