@@ -1,5 +1,7 @@
 use criterion::criterion_main;
 
+mod tools;
+
 mod offset {
     use memcpy::memcpy_offset::memcpy;
     include!("bench_memcpy_impl.rs");

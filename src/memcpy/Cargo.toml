@@ -25,3 +25,4 @@ cfg-if = "0.1.10"
 [dev-dependencies]
 proptest = "0.9.6"
 criterion = "0.3.2"
+blake2 = "0.8.1"
