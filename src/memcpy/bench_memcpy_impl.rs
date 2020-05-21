@@ -4,43 +4,29 @@ use criterion::{black_box, criterion_group, Criterion};
 use crate::tools;
 use std::iter;
 
-fn bench_memcpy_0(c: &mut Criterion) {
-    let src = tools::bytes(0);
+fn bench_memcpy(c: &mut Criterion, len: usize) {
+    let src = tools::bytes(len);
     let src_ptr = src.as_ptr();
-    let mut dst = iter::repeat(0).take(src.len()).collect::<Vec<_>>();
+    let mut dst = iter::repeat(0).take(len).collect::<Vec<_>>();
     let dst_ptr = dst.as_mut_ptr();
 
-    let name = &format!("{}/memcpy_0", module_path!());
+    let name = &format!("{}/memcpy_{}", module_path!(), len);
     c.bench_function(name, |b| b.iter(|| {
-        unsafe { memcpy_impl(dst_ptr, src_ptr, 0) };
+        unsafe { memcpy_impl(dst_ptr, src_ptr, len) };
         black_box(&dst);
     }));
+}
+
+fn bench_memcpy_0(c: &mut Criterion) {
+    bench_memcpy(c, 0);
 }
 
 fn bench_memcpy_16(c: &mut Criterion) {
-    let src = tools::bytes(16);
-    let src_ptr = src.as_ptr();
-    let mut dst = iter::repeat(0).take(src.len()).collect::<Vec<_>>();
-    let dst_ptr = dst.as_mut_ptr();
-
-    let name = &format!("{}/memcpy_16", module_path!());
-    c.bench_function(name, |b| b.iter(|| {
-        unsafe { memcpy_impl(dst_ptr, src_ptr, 0) };
-        black_box(&dst);
-    }));
+    bench_memcpy(c, 16);
 }
 
 fn bench_memcpy_1024(c: &mut Criterion) {
-    let src = tools::bytes(1024);
-    let src_ptr = src.as_ptr();
-    let mut dst = iter::repeat(0).take(src.len()).collect::<Vec<_>>();
-    let dst_ptr = dst.as_mut_ptr();
-
-    let name = &format!("{}/memcpy_1024", module_path!());
-    c.bench_function(name, |b| b.iter(|| {
-        unsafe { memcpy_impl(dst_ptr, src_ptr, 0) };
-        black_box(&dst);
-    }));
+    bench_memcpy(c, 1024);
 }
 
 criterion_group!(
