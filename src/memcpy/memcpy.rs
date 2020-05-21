@@ -1,7 +1,4 @@
 #![no_std]
-#![allow(unused)]
-
-use cfg_if::cfg_if;
 
 /// The type signature of a `memcpy` function
 pub type Memcpy = unsafe fn(dst: *mut u8, src: *const u8, bytes: usize);
@@ -23,6 +20,7 @@ fn memcpy_assert(dst: *mut u8, src: *const u8, bytes: usize) {
 pub mod memcpy_trivial;
 
 /// Ensure sure all implementations have the same type
+#[allow(unused)]
 static ALL_MEMCPYS: &[Memcpy] = &[
     memcpy_trivial::memcpy,
 ];
