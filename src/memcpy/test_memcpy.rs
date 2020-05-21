@@ -1,7 +1,7 @@
 use proptest::prelude::*;
 use std::iter;
 
-use memcpy::memcpy_trivial::memcpy as memcpy_impl;
+use memcpy::memcpy_loop_offset::memcpy as memcpy_impl;
 
 proptest! {
     #[test]
